@@ -130,6 +130,14 @@ public:
 			MOVE16(20);
 			MOVE16(24);
 			MOVE16(28);
+			MOVE16(32);
+			MOVE16(36);
+			MOVE16(40);
+			MOVE16(44);
+			MOVE16(48);
+			MOVE16(52);
+			MOVE16(56);
+			MOVE16(60);
 #undef MOVE16
 		}
 	}
