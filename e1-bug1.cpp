@@ -163,6 +163,7 @@ void delete_dst (byte ** dst)
 void dump(byte ** dst)
 {
 	for (int i = 0; i < 32; i++) {
+		printf("%p: ", dst[i]);
 		for (int j = 0; j < 64; j++) {
 			printf("%02X ", dst[i][j]);
 		}
