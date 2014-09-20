@@ -130,14 +130,6 @@ public:
 			MOVE16(20);
 			MOVE16(24);
 			MOVE16(28);
-			MOVE16(32);
-			MOVE16(36);
-			MOVE16(40);
-			MOVE16(44);
-			MOVE16(48);
-			MOVE16(52);
-			MOVE16(56);
-			MOVE16(60);
 #undef MOVE16
 		}
 	}
@@ -168,6 +160,16 @@ void delete_dst (byte ** dst)
     delete dst;
 }
 
+void dump(byte ** dst)
+{
+	for (int i = 0; i < 32; i++) {
+		for (int j = 0; j < 64; j++) {
+			printf("%02X ", dst[i][j]);
+		}
+		printf("\n");
+	}
+}
+
 void check (const Demux & demux)
 {
     byte * src = generate ();
@@ -175,6 +177,8 @@ void check (const Demux & demux)
     byte ** dst = allocate_dst ();
     Reference().demux (src, SRC_SIZE, dst0);
     demux.demux (src, SRC_SIZE, dst);
+	cout << "Result\n";
+	dump(dst);
 
     for (int i = 0; i < NUM_TIMESLOTS; i++) {
         if (memcmp (dst0[i], dst[i], DST_SIZE)) {
