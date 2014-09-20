@@ -176,7 +176,10 @@ void check (const Demux & demux)
     byte ** dst0 = allocate_dst ();
     byte ** dst = allocate_dst ();
     Reference().demux (src, SRC_SIZE, dst0);
-    demux.demux (src, SRC_SIZE, dst);
+    
+	cout << "dst\n";
+	dump(dst);
+	demux.demux (src, SRC_SIZE, dst);
 	cout << "Result\n";
 	dump(dst);
 
